@@ -1,0 +1,44 @@
+
+{{ form_start(form) }}
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div class="page-title-icon">
+                <i class="pe-7s-graph text-success">
+                </i>
+            </div>
+            <div>Create Appointment
+                <div class="page-title-subheading">Add a new appointment
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        {{ form_row(form.treatment) }}
+
+        <label>Start Time</label>
+        <div id="picker1" class="form-control"> </div>
+        {{  form_widget(form.beginAt,{'type':'hidden','id':'result1'}) }}
+
+        <label>End Time</label>
+        <div id="picker2" class="form-control"> </div>
+        {{  form_widget(form.endAt,{'type':'hidden','id':'result2'}) }}
+
+        {{ form_row(form.cost) }}
+        {{ form_row(form.discount) }}
+        {{ form_row(form.totalcost) }}
+
+        {{ form_row(form.color) }}
+        {{ form_row(form.staff) }}
+    </div>
+</div>
+
+{{ form_end(form) }}
+
+
+
+
+

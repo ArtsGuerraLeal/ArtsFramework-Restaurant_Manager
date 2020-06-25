@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Appointment{% endblock %}
+
+{% block body %}
+
+    {{ include('patient/_appointment.html.twig') }}
+    <a href="{{ path('patient_index') }}">back to list</a>
+
+    <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+
+    <script type="text/javascript">
+        var totalCost =  document.getElementById('{{ form.children.totalcost.vars.id }}');
+        var discount =  document.getElementById('{{ form.children.discount.vars.id }}');
+        var cost =  document.getElementById('{{ form.children.cost.vars.id }}');
+
+        var startTimeInput = document.getElementById('result1');
+        var endTimeInput = document.getElementById('result2');
+
+        $('#{{ form.children.cost.vars.id }}').change(function(){
+            $('#{{ form.children.totalcost.vars.id }}').val(cost.value - discount.value)
+        });
+
+        $('#{{ form.children.discount.vars.id }}').change(function(){
+            $('#{{ form.children.totalcost.vars.id }}').val(cost.value - discount.value)
+        });
+
+    </script>
+
+{% endblock %}
+

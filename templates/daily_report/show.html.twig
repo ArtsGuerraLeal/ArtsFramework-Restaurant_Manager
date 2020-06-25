@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Daily Report{% endblock %}
+
+{% block body %}
+    <h1>Daily Report</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ report.id }}</td> <td>Date: {{ report.dateCreated ? report.datecreated|date('d-m-Y H:i:s') : ''  }}</td>
+        </tr>
+
+        {% for key,value in data %}
+            <tr>
+        <th>{{ key }}</th>
+        <td>{{ value }}</td>
+            </tr>
+        {% endfor %}
+
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('daily_report') }}">back to list</a>
+
+    <a href="{{ path('daily_report') }}">edit</a>
+
+{% endblock %}

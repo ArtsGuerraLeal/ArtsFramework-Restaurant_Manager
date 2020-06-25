@@ -1,0 +1,48 @@
+
+{{ form_start(form) }}
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div class="page-title-icon">
+                <i class="pe-7s-graph text-success">
+                </i>
+            </div>
+            <div>Create a Brand
+                <div class="page-title-subheading">Add a new Brand and Stores
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-card mb-3 card">
+    <div class="card-body">
+        {{ form_row(form.name) }}
+        {{ form_row(form.attachment) }}
+
+        <h6 class="card-subtitle mb-2 text-muted">Stores</h6>
+
+        <div class="col-sm-8 col-sm-offset-2" id="collection" data-prototype="{{ form_widget(form.store.vars.prototype)|e('html_attr') }}">
+            {% for row in form.store %}
+                <div class="card-warning">
+                    <div class="card-body draggable" draggable="true">
+                        {{ form_row(row) }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+
+        {{ form_row(form.save) }}
+    </div>
+
+</div>
+
+{{ form_end(form) }}
+
+
+
+
+
+
+

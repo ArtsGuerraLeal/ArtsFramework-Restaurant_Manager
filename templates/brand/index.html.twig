@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Brand index{% endblock %}
+
+{% block body %}
+<div class="app-page-title mb-1">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div class="page-title-icon">
+                <i class="pe-7s-graph text-success">
+                </i>
+            </div>
+            <div>Brand List
+                <div class="page-title-subheading">Database of all the Brands
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card mb-3">
+    <div class="card-header">
+        <i class="fas fa-table"></i>
+        Brands</div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                <tr>
+                    <th>Name</th>
+
+
+
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+        {% for brand in brands %}
+            <tr>
+
+                <td>{{ brand.name }}</td>
+
+                <td>
+                    <a href="{{ path('brand_show', {'id': brand.id}) }}">show</a>
+                    <a href="{{ path('brand_edit', {'id': brand.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+
+    <a href="{{ path('brand_new') }}">Create new</a>
+{% endblock %}
+
+
+
+
